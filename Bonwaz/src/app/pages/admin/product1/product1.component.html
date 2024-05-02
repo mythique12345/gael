@@ -1,0 +1,125 @@
+<div class="row"></div>
+<div class="row">
+    <div [ngClass]="isSiderPanelVisible? 'col-8': 'col-12'">
+        <div class="card">
+            <div class="card-header bg-primary">
+                <div class="row">
+                    <div class="col-6">
+                        Product List
+                    </div>
+                    <div class="col-6 text-end">
+                        <button class="otn btn-sm btn-success" (click)="openSidePanel()">New</button>
+                    </div>
+                </div>
+
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-3">
+                        <div class="card">
+                            <img class="card-img-top" src="img_avatar1.png" alt="Card image">
+                            <div class="card-body">
+                                <h4 class="card-title">Gael Doe</h4>
+                                <p class="card-text">Some example text.</p>
+                                <a href="#" class="btn btn-primary">See Profile</a>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-3">
+                        <div class="card">
+                            <img class="card-img-top" src="img_avatar1.png" alt="Card image">
+                            <div class="card-body">
+                                <h4 class="card-title">Mythique </h4>
+                                <p class="card-text">Some example text.</p>
+                                <a href="#" class="btn btn-primary">See Profile</a>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-3">
+                        <div class="card">
+                            <img class="card-img-top" src="img_avatar1.png" alt="Card image">
+                            <div class="card-body">
+                                <h4 class="card-title">GVN</h4>
+                                <p class="card-text">Some example text.</p>
+                                <a href="#" class="btn btn-primary">See Profile</a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-4" *ngIf="isSiderPanelVisible">
+        <div class="card">
+            <div class="card-header bg-primary">
+                <div class="row">
+                    <div class="col-6">
+                        New Product
+                    </div>
+                    <div class="col-6 text-end">
+                        <button class="otn btn-sm btn-success" (click)="closeSidePanel()">close</button>
+                    </div>
+                </div>
+
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-6">
+                        <label for="">SKU</label>
+                        <input type="text" [(ngModel)]="product1Obj.productSku" class="form-control">
+                    </div>
+                    <div class="col-6">
+                        <label for="">Name</label>
+                        <input type="text" [(ngModel)]="product1Obj.product1Name" class="form-control">
+                    </div>
+                    <div class="col-6">
+                        <label for="">Short Name</label>
+                        <input type="text" [(ngModel)]="product1Obj.productShortName" class="form-control">
+                    </div>
+                    <div class="col-6">
+                        <label for="">Price</label>
+                        <input type="text" [(ngModel)]="product1Obj.productPrice" class="form-control">
+                    </div>
+                    <div class="col-6">
+                        <label class="fw-semibold my-1">categorie </label>
+                        <select [(ngModel)]="product1Obj.categoryId" class="form-select" name="categoryId"
+                            #categoryId="ngModel" required>
+                            <option value="null" disabled>select categorie </option>
+                            <option *ngFor="let cate of categoryList" [value]="cate.categoryId"> {{cate.CategoryName}}</option>
+                        </select>
+                        <div class="validation-error" *ngIf="categoryId.touched || categoryId.dirty">
+                            <div *ngIf="categoryId.errors?.['required']">This field is required</div>
+                          </div>
+
+                    </div>
+                    <div class="col-6">
+                        <label for="">Delivery Time Span</label>
+                        <input type="text" [(ngModel)]="product1Obj.deliveryTimeSpan" class="form-control">
+                    </div>
+                    <div class="col-6">
+                        <label for="">image</label>
+                        <input type="text" [(ngModel)]="product1Obj.productImageUrl" class="form-control">
+                    </div>
+
+
+                    <div class="col-6">
+                        <label for="">ProductDescription</label>
+                        <input type="text" [(ngModel)]="product1Obj.productDescription" class="form-control">
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+
+
+
+
+</div>

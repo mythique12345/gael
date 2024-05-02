@@ -1,0 +1,22 @@
+<!-- evt-comp.component.html -->
+
+<table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nom</th>
+        <th>Date</th>
+        <!-- Ajoutez plus de colonnes au besoin -->
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Utilisation de *ngFor pour itérer sur chaque élément du tableau events -->
+      <tr *ngFor="let event of events">
+        <td>{{ event.id }}</td>
+        <td>{{ event.name }}</td>
+        <td>{{ event.date | date }}</td> <!-- Utilisation de | date pour formater la date -->
+        <!-- Ajoutez plus de colonnes au besoin -->
+      </tr>
+    </tbody>
+  </table>
+  
